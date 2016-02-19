@@ -1,0 +1,12 @@
+prototype(Swisscom.Neos.Piwik:PiwikScript) < prototype(TYPO3.Neos:Content) {
+	templatePath = 'resource://Swisscom.Neos.Piwik/Private/Templates/TypoScriptObjects/PiwikScript.html'
+	id = ${Configuration.setting('Swisscom.Neos.Piwik.id')}
+	openingCdata = '/* <![CDATA[ */'
+	closingCdata = '/* ]]> */'
+}
+
+prototype(TYPO3.Neos:Page) {
+	body {
+		javascripts.piwik = Swisscom.Neos.Piwik:PiwikScript
+	}
+}

@@ -1,0 +1,20 @@
+<f:if condition="{id}">
+	<f:then>
+		<!-- Piwik start -->
+		<script type="text/javascript" src="/piwik.php"></script>
+		<script type="text/javascript">
+			{openingCdata -> f:format.raw()}
+			try {
+				var piwikTracker=Piwik.getTracker("/piwik.php",{id});
+				piwikTracker.enableLinkTracking();
+				piwikTracker.trackPageView();
+			} catch(err) {}
+			{closingCdata -> f:format.raw()}
+		</script>
+		<noscript><p><img src="/piwik.php?idsite={id}" style="border:0" alt="" /></p></noscript>
+		<!-- Piwik end -->
+	</f:then>
+	<f:else>
+		<!-- Piwik disabled -->
+	</f:else>
+</f:if>
